@@ -1,0 +1,48 @@
+body{
+    background-color: ivory;
+}
+.ta{
+    text-align: center;
+}
+h1{
+    text-align: center;
+    font-size:xx-large;
+    font-family: cursive;
+}
+input{
+    padding-top: 5px;
+}
+#bd1{
+    border-style: ridge;
+    border-color: red;
+}
+#bd2{
+    border-top-style:double;
+    border-bottom-style:double;
+    border-color: black;
+    border-top-width:5px;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    height:400px;
+}
+.b1{
+    background-color: rgb(133, 190, 233);
+    width:60px;
+    height:30px;
+    padding:5px;
+}
+.b2{
+    background-color: red;
+    width:60px;
+    height:30px;
+    padding:5px;
+}
+.b3{
+    background-color:aqua;
+    width:60px;
+    height:30px;
+    padding:5px;
+}
+.c1{
+    color:blueviolet;
+}

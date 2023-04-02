@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <title>J Shop</title>
+    </head>
+    <body>
+        <h1>Welcome to J shop!</h1>
+        <table >
+            <tr>
+                <th><a href="login.html">로그인</a></th>
+                <th id="bd1"><a href="signup.html">회원가입</a></th>
+            </tr>
+        </table>
+        <div id="bd2">
+            <div class="c1">개인정보 </div><br>
+            <form>
+                이름: <input  type="text" placeholder="홍길동" required autofocus><br>
+                성별: 남성<input type="radio" checked> 여성<input type="radio"><br>
+                생일: <input type="date"><br>
+                나이대: <input type="number" step="10"><br>
+                전화번호: <input type="tel" placeholder="(010)1234-5678" autocomplete="on" required><br>
+                이메일: <input type="email" placeholder="Jshop@gmail.com" autocomplete="on" required><br>
+                유저 아이디: <input type="text" placeholder="아이디를 입력하세요" required><br>
+                비밀번호: <input type="password" placeholder="비밀번호를 입력하세요" required><br>
+                비밀번호 확인: <input type="password" placeholder="비밀번호 확인" required><br>
+                <fieldset>
+                    <legend class="ta">관심 상품</legend>
+                    <input type="checkbox">의류
+                    <input type="checkbox">음식
+                    <input type="checkbox">가전
+                    <input type="checkbox">학용품
+                    <input type="checkbox">도서
+                    <input type="checkbox">음반
+                    <input type="checkbox">티켓
+                    <input type="checkbox">화장품
+                    <input type="checkbox">악기
+                    <input type="checkbox">약류
+                    <input type="checkbox">기타
+                </fieldset>
+                <input class="b1" type="submit" value="Signup">
+                <button class="b2"  onclick="location.href='signup.html'">Cancle</button>
+            </form>
+        </div>
+    </body>
+</html>
