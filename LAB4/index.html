@@ -75,10 +75,8 @@
                 <div class = "maincontent_head">J shop 소개</div>
                 <div id="introduction">   J shop은 다양한 도서를 파는 온라인 서점입니다. J shop에는 대학교 교재, 고전소설, 한국소설, 외국소설, 비문학 책 등 다양한 분야의 책을 팔고 있습니다. 문의 사항은 Jshop@gamil.com을 통해 문의해주십시오. 항상 고객의 즐거운 독서를 위해 최선을 다하겠습니다. </div>
             </div>
+        </div>
             <script>
-                var currentPage = 1;
-                var perPage = 10;
-                var isLoading = false;
 
                 var products
                 fetch("product.json")
@@ -204,7 +202,7 @@
                     if(product.image1 == event.target.alt){
                         var imageGroup = event.target.parentNode;
                         var hideText = imageGroup.querySelector('.maincontent_text .hide_text2');
-                        hideText.textContent = product.title+': '+product.description+'\n'+product.price+'won';
+                        hideText.textContent = product.title+': '+product.discription+'\n'+product.price+'won';
                         hideText.style.display = "block";
                     }
 
