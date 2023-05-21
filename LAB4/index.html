@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <title>J Shop</title>
+    </head>
+    <body>
+        <h1 id="header_animation">J shop!</h1>
+        <div class="navigator">
+            <a id="bd1" href="index.html">메인페이지</a>
+            <a class="navigator_item" href="login.html">로그인</a>
+            <a class="navigator_item" href="signup.html">회원가입</a>
+        </div>
+        <div id="sub_border"></div>
+        <div id="container_all">
+            <div class="vertical_header">
+                <div class = "maincontent_head">Books</div>
+                <div class="filter_container">
+                    <label for="category">카테고리:</label>
+                    <select id="category" onchange="filterByCategory()">
+                        <option value="">전체</option>
+                        <option value="foreign_novel">외국 소설</option>
+                        <option value="korean_novel">한국 소설</option>
+                        <option value="textbook">교재</option>
+                    </select>
+                    <label for="keyword">키워드:</label>
+                    <input type="text" id="keyword" oninput="searchProducts()">
+                    <label for="sort">정렬:</label>
+                    <select id="sort" onchange="sortProducts()">
+                        <option value="alphabetical">가나다 순</option>
+                        <option value="alphabetical2">역 가나다 순</option>
+                    </select>
+                </div>
+                <div id="image_container">
+                    <div class="sub_image_container">
+                        <div id="maincontent_image1">
+                            <img class="image1" src="그리스인 조르바.jpg" alt="그리스인 조르바.jpg" onclick="showProductDescription1()">
+                            <img class="image2" src="노르웨이의 숲.jpg" alt="노르웨이의 숲.jpg" onclick="showProductDescription2()">
+                            <div class="maincontent_text">
+                                <p class="hide_text1" style="display: none;"></p>
+                                <p class="hide_text2" style="display: none;"></p>
+                            </div>
+                        </div>
+                        <div id="maincontent_image2">
+                            <img class="image1" src="무진기행.jpg" alt="무진기행.jpg" onclick="showProductDescription1()">
+                            <img class="image2" src="삼국지.jpg" alt="삼국지.jpg" onclick="showProductDescription2()">
+                            <div class="maincontent_text">
+                                <p class="hide_text1" style="display: none;"></p>
+                                <p class="hide_text2" style="display: none;"></p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sub_image_container">
+                        <div id="maincontent_image3">
+                            <img class="image1" src="연금술사.jpg" alt="연금술사.jpg" onclick = "showProductDescription1()">
+                            <img class="image2" src="코스모스.jpg" alt="코스모스.jpg" onclick = "showProductDescription2()">
+                            <div class="maincontent_text">
+                                <p class="hide_text1" style="display: None"></p>
+                                <p class="hide_text2" style="display: None"></p>
+                            </div>
+                        </div>
+                        <div id="maincontent_image4">
+                            <img class="image1" src="파이썬 라이브러리를 활용한 데이터 분석.jpg" alt="파이썬 라이브러리를 활용한 데이터 분석.jpg" onclick = "showProductDescription1()">
+                            <img class="image2" src="프리드만의 선형대수학.jpg" alt="프리드만의 선형대수학.jpg" onclick = "showProductDescription2()">
+                            <div class="maincontent_text">
+                                <p class="hide_text1" style="display: None"></p>
+                                <p class="hide_text2" style="display: None"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vertical_header">
+                <div class = "maincontent_head">J shop 소개</div>
+                <div id="introduction">   J shop은 다양한 도서를 파는 온라인 서점입니다. J shop에는 대학교 교재, 고전소설, 한국소설, 외국소설, 비문학 책 등 다양한 분야의 책을 팔고 있습니다. 문의 사항은 Jshop@gamil.com을 통해 문의해주십시오. 항상 고객의 즐거운 독서를 위해 최선을 다하겠습니다. </div>
+            </div>
+            <script>
+                var currentPage = 1;
+                var perPage = 10;
+                var isLoading = false;
+
+                var products
+                fetch("product.json")
+                .then((response) =>response.json())
+                .then((data) => {
+                    products = data.products;
+                });
+
+                function initialize(){
+                    let i=1;
+                    let j=1;
+                    let ic, im;
+                    while(j!=5){
+                    ic = "maincontent_image"+j;
+                    im = "image"+i;
+                    ht = "hide_text"+i;
+                    var image1 = document.querySelector('#' + ic + ' .' + im);
+                    image1.src = '';
+                    image1.alt = '';
+                    image1.onclick = '';
+                    var hideText = document.querySelector('#' + ic + ' .' + ht);
+                    hideText.style.display = "None";
+                    i+=1;
+                        if (i==3){
+                            i=1;
+                            j+=1;
+                        }
+                    }
+                }
+              
+                function renderProducts(product,i,j) {
+                    let ic = "maincontent_image"+j;
+                    let im = "image"+i;
+                    var image1 = document.querySelector('#' + ic + ' .' + im);
+                    image1.src = product.image1;
+                    image1.alt = product.image1;
+                    if (i==1){
+                        image1.onclick = showProductDescription1;
+                    }
+                    else{
+                        image1.onclick = showProductDescription2;
+                    }
+                    }
+                
+
+                function filterByCategory() {
+                  initialize();
+                  var selectedCategory = document.getElementById("category").value;
+                  let i =1;
+                  let j =1;
+                  products.forEach(product => {
+                    if (product.category == selectedCategory){
+                        renderProducts(product,i,j);
+                        i+=1;
+                        if (i==3){
+                            i=1;
+                            j+=1;
+                        }
+                    }
+                  })
+                }
+              function searchProducts(){
+                initialize();
+                let i =1;
+                let j =1;
+                var search = document.getElementById("keyword");
+                var pattern = new RegExp(search.value, "i");
+                products.forEach(product=>{
+                    str = product.description;
+                    if(str.match(pattern)){
+                        renderProducts(product,i,j);
+                        i+=1;
+                        if (i==3){
+                            i=1;
+                            j+=1;
+                        }
+                    }
+                })
+              }
+              
+              function sortProducts(){
+                initialize();
+                let i =1;
+                let j =1;
+                var list=[];
+                var sort = document.getElementById("sort").value;
+                if(sort == "alphabetical"){
+                    for (var p=0; p<products.length;p++){
+                        renderProducts(products[p],i,j);
+                        i+=1;
+                        if (i==3){
+                            i=1;
+                            j+=1;
+                        }
+                    }
+                }
+                else{
+                    for (var p=products.length-1; p>-1;p--){
+                        renderProducts(products[p],i,j);
+                        i+=1;
+                        if (i==3){
+                            i=1;
+                            j+=1;
+                        }
+                    }
+                }
+                        
+            }
+
+            function showProductDescription1(){
+                products.forEach(product=>{
+                    if(product.image1 == event.target.alt){
+                        var imageGroup = event.target.parentNode;
+                        var hideText = imageGroup.querySelector('.maincontent_text .hide_text1');
+                        hideText.textContent = product.title+': '+product.discription+'\n'+product.price+'won';
+                        hideText.style.display = "block";
+                    }
+
+                })
+            }
+            function showProductDescription2(){
+                products.forEach(product=>{
+                    if(product.image1 == event.target.alt){
+                        var imageGroup = event.target.parentNode;
+                        var hideText = imageGroup.querySelector('.maincontent_text .hide_text2');
+                        hideText.textContent = product.title+': '+product.description+'\n'+product.price+'won';
+                        hideText.style.display = "block";
+                    }
+
+                })
+            }
+            
+
+        </script>
+    </body>
+</html>

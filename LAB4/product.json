@@ -1,0 +1,60 @@
+{
+    "products": [
+      {
+        "title": "그리스인 조르바",
+        "price": 10000,
+        "category": "foreign_novel",
+        "image1": "그리스인 조르바.jpg",
+        "description": "니코스 카잔차키스의 소설입니다."
+      },
+      {
+        "title": "노르웨이의 숲",
+        "price": 15000,
+        "category": "foreign_novel",
+        "image1": "노르웨이의 숲.jpg",
+        "description": "무라카미 하루키의 소설입니다."
+      },
+      {
+        "title": "무진기행",
+        "price": 12000,
+        "category": "korean_novel",
+        "image1": "무진기행.jpg",
+        "description": "김승옥의 소설입니다."
+      },
+      {
+        "title": "삼국지",
+        "price": 18000,
+        "category": "foreign_novel",
+        "image1": "삼국지.jpg",
+        "description": "중국 고대의 역사 소설입니다."
+      },
+      {
+        "title": "연금술사",
+        "price": 20000,
+        "category": "foreign_novel",
+        "image1": "연금술사.jpg",
+        "description": "파울로 코엘료의 소설입니다."
+      },
+      {
+        "title": "코스모스",
+        "price": 25000,
+        "category": "textbook",
+        "image1": "코스모스.jpg",
+        "description": "칼 세이건의 과학서입니다."
+      },
+      {
+        "title": "파이썬 라이브러리를 활용한 데이터 분석",
+        "price": 30000,
+        "category": "textbook",
+        "image1": "파이썬 라이브러리를 활용한 데이터 분석.jpg",
+        "description": "웨스 맥키니의 데이터 분석서입니다."
+      },
+      {
+        "title": "프리드만의 선형대수학",
+        "price": 28000,
+        "category": "textbook",
+        "image1": "프리드만의 선형대수학.jpg",
+        "description": "게오르그 프리드만의 선형대수학 교재입니다."
+      }
+    ]
+  }
