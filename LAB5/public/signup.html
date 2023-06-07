@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="main.css">
+        <title>J Shop</title>
+    </head>
+    <body>
+        <h1 id="header_animation">J shop!</h1>
+        <div class="navigator">
+            <a class="navigator_item" href="/">메인페이지</a>
+            <a class="navigator_item" href="login.html">로그인</a>
+            <a id="bd1" href="signup.html">회원가입</a>
+        </div>
+        <div id="sub_border"></div>
+        <div id="bd2">
+            <div class="c1">개인정보 </div><br>
+            <form>
+                이름: <input  type="text" placeholder="홍길동" required autofocus><br>
+                성별: 남성<input type="radio" checked> 여성<input type="radio"><br>
+                생일: <input type="date"><br>
+                나이대: <input type="number" step="10"><br>
+                전화번호: <input type="tel" placeholder="(010)1234-5678" autocomplete="on" required><br>
+                이메일: <input type="email" placeholder="Jshop@gmail.com" autocomplete="on" required><br>
+                유저 아이디: <input type="text" placeholder="아이디를 입력하세요" required><br>
+                비밀번호: <input type="password" placeholder="비밀번호를 입력하세요" required><br>
+                비밀번호 확인: <input type="password" placeholder="비밀번호 확인" required><br>
+                <fieldset>
+                    <legend class="ta">관심 분야</legend>
+                    <input type="checkbox">소설
+                    <input type="checkbox">교재
+                    <input type="checkbox">사회과학
+                    <input type="checkbox">자연과학
+                    <input type="checkbox">공학
+                    <input type="checkbox">고전소설
+                    <input type="checkbox">공상소설
+                    <input type="checkbox">로맨스소설
+                    <input type="checkbox">추리소설
+                    <input type="checkbox">비문학
+                    <input type="checkbox">기타
+                </fieldset>
+                <input class="b1" type="submit" value="Signup">
+                <button class="b2"  onclick="location.href='signup.html'">Cancle</button>
+            </form>
+        </div>
+    </body>
+</html>
